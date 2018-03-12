@@ -23,10 +23,10 @@ yum -y install net-tools autoconf* automake* tree bc bzip2 bzip2-devel \
 ```
 
 ## 涉及模块(部署到centos7.4)
-django： pip3 install Django
-xlsxwriter:pip3 install xlsxwriter
-pymysql: pip3 install pymysql
-
+django： pip3 install Django  
+xlsxwriter:pip3 install xlsxwriter  
+pymysql: pip3 install pymysql  
+  
 ## pycharm使用文档
 
 https://www.jetbrains.com/help/pycharm/2016.1/live-templates.html
