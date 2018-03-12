@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        table {
+            border: 1px solid #ee772b;
+            border-collapse: collapse;
+        }
+
+        table th, table td {
+            border: 1px solid #ee772b;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+<h4>{{ title }}</h4>
+<table border='1' cellpadding='3' cellspacing='0'>
+    <tr>
+        <th>时间</th>
+        <th>商家</th>
+        <th>价格</th>
+    </tr>
+    {% for data in datas %}
+        <tr>
+            <td>{{ data.queryTime }}</td>
+            <td>{{ data.merchant }}</td>
+            <td>{{ data.price }}</td>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

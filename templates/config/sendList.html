@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block mainBody %}
+    <table style="min-width: 450px;">
+        <tr>
+            <th>姓名</th>
+            <th>发送邮件</th>
+            <th>发送短信</th>
+            <th>币种</th>
+            <th>买入价格</th>
+            <th>卖出价格</th>
+            <th>操作</th>
+        </tr>
+        {% for send in sends %}
+            <tr class="{% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}">
+                <td>{{ send.user.realName }}</td>
+                <td>{% if send.sendEmail %}是{% else %}否{% endif %}</td>
+                <td>{% if send.sendSms %}是{% else %}否{% endif %}</td>
+                <td>{{ send.get_coinType_display }}</td>
+                <td>{{ send.buyPrice }}</td>
+                <td>{{ send.salePrice }}</td>
+                <td><a href="/config/update?id={{ send.id }}">编辑</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

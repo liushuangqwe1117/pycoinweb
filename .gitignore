@@ -1,0 +1,40 @@
+#base
+bin/
+*.class
+
+#Mobile Tools for Java
+.mtj.tmp/
+temp/
+
+#maven
+target/
+
+#gradle
+build/
+
+#eclipse ide
+.project
+.classpath
+.settings/
+
+
+#idea ide
+.idea/
+*.iml
+
+#Package Files
+*.war
+*.ear
+
+#virtual machine crash logs
+hs_err_pid*
+
+#Log file
+*.log
+*.zip
+logs/
+
+#other
+*~
+~*
+Thumbs.db

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block mainBody %}
+    <form action="/config/update" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{ send.id }}">
+        <table border="1">
+            <caption>发送配置</caption>
+            <tr>
+                <th>姓名</th>
+                <td>{{ send.user.realName }}</td>
+            </tr>
+            <tr>
+                <th>发送邮件</th>
+                <td>{% if send.sendEmail %}是{% else %}否{% endif %}</td>
+            </tr>
+            <tr>
+                <th>发送短信</th>
+                <td>{% if send.sendSms %}是{% else %}否{% endif %}</td>
+            </tr>
+            <tr>
+                <th>币种</th>
+                <td>{{ send.get_coinType_display }}</td>
+            </tr>
+            <tr>
+                <th>买入价格</th>
+                <td><input type="text" name="buyPrice" value="{{ send.buyPrice }}"></td>
+            </tr>
+            <tr>
+                <th>卖出价格</th>
+                <td><input type="text" name="salePrice" value="{{ send.salePrice }}"></td>
+            </tr>
+        </table>
+        <input type="submit" value="保存"/> &nbsp;&nbsp;
+        <input type="button" onclick="window.location.href='/config/send'" value="取消"/>
+    </form>
+{% endblock %}

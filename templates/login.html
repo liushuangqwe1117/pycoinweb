@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+</head>
+<body>
+<form action="/login/" method="post">
+    {% csrf_token %}
+    {% for field in loginData %}
+        <div>
+            <span style="width: 60px;text-align: left;display: inline-block;">{{ field.label_tag }}</span>
+            {{ field }} {{ field.errors }}
+        </div>
+        <br/>
+    {% endfor %}
+    <input type="submit" value="登录"/>
+</form>
+</body>
+</html>

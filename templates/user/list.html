@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block mainBody %}
+    <table style="width: 100%;min-width: 500px;">
+        <tr>
+            <th>姓名</th>
+            <th>登录账号</th>
+            <th>邮箱</th>
+            <th>手机号码</th>
+            <th>操作</th>
+        </tr>
+        {% for user in users %}
+            <tr class="{% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}">
+                <td>{{ user.realName }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.phone | default_if_none:"" }}</td>
+                <td><a href="/user/edit?userId={{ user.id }}">编辑</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

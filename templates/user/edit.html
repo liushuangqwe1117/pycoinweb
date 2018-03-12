@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block mainBody %}
+    <form action="/user/update" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{ user.id }}">
+        <table border="1">
+            <caption>用户信息编辑</caption>
+            <tr>
+                <th>姓名</th>
+                <td>{{ user.realName }}</td>
+            </tr>
+            <tr>
+                <th>登录账号</th>
+                <td>{{ user.username }}</td>
+            </tr>
+            <tr>
+                <th>邮箱</th>
+                <td><input type="text" name="email" value="{{ user.email }}"></td>
+            </tr>
+            <tr>
+                <th>手机号码</th>
+                <td><input type="text" name="phone" value="{{ user.phone | default_if_none:"" }}"></td>
+            </tr>
+        </table>
+        <input type="submit" value="保存"/> &nbsp;&nbsp;<input type="button" onclick="window.location.href='/user/list'" value="取消"/>
+    </form>
+{% endblock %}
