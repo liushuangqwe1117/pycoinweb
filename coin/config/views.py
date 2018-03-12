@@ -48,13 +48,12 @@ def price(request):
     else:
         priceType = int(priceType)
 
+    nowStr = datetime.now().strftime('%Y-%m-%d')
     if startPriceDate is None:
-        yes = datetime.now() - timedelta(days=1)
-        startPriceDate = yes.strftime('%Y-%m-%d') + " 00:00"
+        startPriceDate = nowStr + " 00:00"
 
     if endPriceDate is None:
-        yes = datetime.now() - timedelta(days=1)
-        endPriceDate = yes.strftime('%Y-%m-%d') + " 23:59"
+        endPriceDate = nowStr + " 23:59"
 
     pds = PriceData.objects.filter(priceType=priceType,
                                    recordTime__range=(startPriceDate + ":00", endPriceDate + ":59"))
