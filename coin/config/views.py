@@ -65,6 +65,7 @@ def price(request):
 
     dateDatas = []
     priceDatas = []
+    avgDatas = []
     rateDatas = []
     if pds is not None and len(pds) > 0:
         for pd in pds:
@@ -72,11 +73,17 @@ def price(request):
             priceDatas.append(float(pd.price))
             rateDatas.append(float(pd.rate))
 
+        # 求平均
+        priceLen = len(priceDatas)
+        avgPrice = round(sum(priceDatas) / priceLen, 2)
+        avgDatas = [avgPrice] * priceLen
+
     return render(request, "config/priceLineChart.html", {
         "startPriceDate": startPriceDate,
         "endPriceDate": endPriceDate,
         "chartTitle": title,
         "dateDatas": dateDatas,
         "priceDatas": priceDatas,
+        "avgDatas": avgDatas,
         "rateDatas": rateDatas
     })

@@ -56,7 +56,7 @@
                 trigger: 'axis'
             },
             legend: {
-                data: ['价格', '汇率'],
+                data: ['价格','均价', '汇率'],
                 x: 'right'
             },
             grid: {
@@ -88,10 +88,17 @@
                     data: {{ priceDatas }}
                 },
                 {
-                    name: '汇率',
+                    name: '均价',
                     type: 'line',
                     smooth: true,
                     stack: '数量2',
+                    data: {{ avgDatas }}
+                },
+                {
+                    name: '汇率',
+                    type: 'line',
+                    smooth: true,
+                    stack: '数量3',
                     data: {{ rateDatas }}
                 }
             ]
