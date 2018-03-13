@@ -335,7 +335,7 @@ def sendDayFile(datas, isBuy):
     wb.close()
 
     # 发送邮件
-    ap = avgPrice / avgTotal
+    ap = round(avgPrice / avgTotal,2)
 
     sends = SendConfig.objects.all()
     if sends is None or len(sends) == 0:
