@@ -31,7 +31,7 @@
 <div>
     {% if request.session.username %}
         <h4 style='font-family:楷体;'>欢迎您：{{ request.session.username }}
-            &nbsp;&nbsp; <a href="/index">首页</a>
+            &nbsp;&nbsp; <a href="{% url 'indexAlias' %}">首页</a>
             &nbsp;&nbsp; <a href="/logout">登出</a>
         </h4>
     {% else %}

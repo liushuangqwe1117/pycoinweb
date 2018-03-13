@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block mainBody %}
-    <form action="/config/update" method="post">
+    <form action="/config/update/" method="post">
         {% csrf_token %}
         <input type="hidden" name="id" value="{{ send.id }}">
         <table border="1">

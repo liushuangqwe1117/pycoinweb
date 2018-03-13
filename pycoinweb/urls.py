@@ -14,11 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from coin import views
 from coin import tasks
-from coin.user import views as userViews
 from coin.config import views as confViews
 
 urlpatterns = [
@@ -26,13 +25,9 @@ urlpatterns = [
     path('', views.login),
     path('login/', views.login),
     path('logout/', views.logout),
-    path('index/', views.index),
-    path('user/list', userViews.userList),
-    path('user/edit', userViews.userEdit),
-    path('user/update', userViews.userUpdate),
-    path('config/send', confViews.sendList),
-    path('config/update', confViews.sendUpdate),
-    path('config/price', confViews.price),
+    path('index/', views.index, name="indexAlias"),
+    path('user/', include('coin.user.urls')),
+    path('config/', include('coin.config.urls'))
 ]
 
 # 开启线程
