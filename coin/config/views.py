@@ -55,8 +55,10 @@ def price(request):
     if endPriceDate is None:
         endPriceDate = nowStr + " 23:59"
 
+    # 降序就在字段前面加上-，即：.order_by("-recordTime")
     pds = PriceData.objects.filter(priceType=priceType,
-                                   recordTime__range=(startPriceDate + ":00", endPriceDate + ":59"))
+                                   recordTime__range=(startPriceDate + ":00", endPriceDate + ":59")).order_by(
+        "recordTime")
 
     if priceType == 1:
         title = u"买入价格汇率曲线图"

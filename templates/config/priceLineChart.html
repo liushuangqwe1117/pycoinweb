@@ -11,7 +11,7 @@
 
 {% block mainBody %}
     <div>
-        <form action="/config/price" method="post">
+        <form action="/config/price/" method="post">
             {% csrf_token %}
             <div>日期：<input type="text" id="id_startPriceDate" name="startPriceDate" value="{{ startPriceDate }}"
                            style="width: 120px;"
