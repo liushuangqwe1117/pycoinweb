@@ -22,7 +22,7 @@ def userEdit(request, userId):
     return render(request, "user/edit.html", {"user": user})
 
 
-def userEditOldaa(request):
+def userEditOld(request):
     userId = request.GET.get("userId")
     user = User.objects.get(id=userId)
     return render(request, "user/edit.html", {"user": user})
