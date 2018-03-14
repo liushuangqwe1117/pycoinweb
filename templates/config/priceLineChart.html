@@ -85,7 +85,13 @@
                     type: 'line',
                     smooth: true,
                     stack: '数量1',
-                    data: {{ priceDatas }}
+                    data: {{ priceDatas }},
+                    markPoint: {
+                        data: [
+                            {type: 'max', name: '最大值'},
+                            {type: 'min', name: '最小值'}
+                        ]
+                    }
                 },
                 {
                     name: '均价',
