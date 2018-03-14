@@ -22,11 +22,10 @@ def userEdit(request, userId):
     return render(request, "user/edit.html", {"user": user})
 
 
-def userEditOld(request):
+def userEditOldaa(request):
     userId = request.GET.get("userId")
     user = User.objects.get(id=userId)
     return render(request, "user/edit.html", {"user": user})
-
 
 @login_required
 def userUpdate(request):
