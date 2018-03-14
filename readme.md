@@ -30,3 +30,7 @@ pymysql: pip3 install pymysql
 ## pycharm使用文档
 
 https://www.jetbrains.com/help/pycharm/2016.1/live-templates.html
+
+
+知识点：  
+模板标签，模板过滤器

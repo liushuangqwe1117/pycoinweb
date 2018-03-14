@@ -13,8 +13,16 @@
                 <td>{{ user.realName }}</td>
                 <td>{{ user.username }}</td>
                 <td>{{ user.email }}</td>
-                <td>{{ user.phone | default_if_none:"" }}</td>
-                <td><a href="/user/edit?userId={{ user.id }}">编辑</a></td>
+                <td>{% comment %}竖线（|）表示模板过滤器——对模板变量的值 进行修改的函数{% endcomment %}
+                    {{ user.phone | default_if_none:"" }}
+                </td>
+                {# <td><a href="/user/edit?userId={{ user.id }}">编辑</a></td>#}
+                {# 改为restful方式#}
+                <td><a href="/user/edit/{{ user.id }}">编辑</a></td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="7">暂时无数据</td>
             </tr>
         {% endfor %}
     </table>

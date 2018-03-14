@@ -17,7 +17,12 @@ def userList(request):
 
 
 @login_required
-def userEdit(request):
+def userEdit(request, userId):
+    user = User.objects.get(id=userId)
+    return render(request, "user/edit.html", {"user": user})
+
+
+def userEditOld(request):
     userId = request.GET.get("userId")
     user = User.objects.get(id=userId)
     return render(request, "user/edit.html", {"user": user})
